@@ -1,0 +1,19 @@
+    npx kill-port 3000
+
+    npm init @eslint/config@latest
+       npx update-browserslist-db@latest
+
+Codigos de Retorno:
+00  :   Ok
+81  :   Token invalido
+82  :   Firma Invalida   
+83  :   Token Expirado
+84  :   Falta Token
+92  :   Debe enviar un Token
+
+94  :   
+90  :   Usuario No Existe
+91  :   Problemas con la Clave
+96  :   Record Not Found
+98  :   Record Exists
+99  :   Error de Sistema

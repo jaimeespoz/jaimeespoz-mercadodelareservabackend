@@ -2,7 +2,10 @@ const jwt = require('jsonwebtoken');
 
 function authenticateToken(req, res, next) {
     const authHeader = req.headers['authorization'];
-    console.log(req.headers);
+    // console.log(req.headers);
+    if (!authHeader?.startsWith('Bearer '))
+        return res.status(484).json({ retorno: '84', error: 'No es Jwt' });
+
     const token = authHeader && authHeader.split(' ')[1];
     if (token == null)
         return res.status(484).json({ retorno: '84', error: 'Falta Token' });

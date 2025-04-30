@@ -10,11 +10,11 @@ const Users = require('../models/users');
 let refreshTokens = [];
 
 const login = async (req, res) => {
-    console.log('login');
-    console.log(req.body);
+    // console.log('login');
+    // console.log(req.body);
     const { username, password } = req.body;
-    console.log('username', username);
-    console.log('password', password);
+    // console.log('username', username);
+    // console.log('password', password);
     const user = { name: username };
     try {
         const data = await Users.findOne({ username: username });
@@ -27,6 +27,8 @@ const login = async (req, res) => {
                     refreshTokens.push(refreshToken);
                     const data = {
                         retorno: '00',
+                        username: username,
+                        password: password,
                         accessToken: accessToken,
                         refreshToken: refreshToken,
                     };
@@ -58,13 +60,13 @@ const login = async (req, res) => {
 };
 
 const logout = async (req, res) => {
-    console.log('logout');
+    // console.log('logout');
     refreshTokens = refreshTokens.filter((token) => token !== req.body.token);
     res.status(204);
 };
 
 const token = async (req, res) => {
-    console.log('token');
+    // console.log('token');
     const username = req.body.username;
     const user = { name: username };
     const refreshToken = req.body.token;
